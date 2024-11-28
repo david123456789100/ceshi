@@ -26,7 +26,7 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddLabel("简介有飞行")
+Tab:AddLabel("测试简介")
 
 Tab:AddDropdown({
 	Name = "Dropdown",
