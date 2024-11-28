@@ -1,41 +1,40 @@
-# Compiled Lua sources
-luac.out
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
+local Window = OrionLib:MakeWindow({Name = "测试1", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
+local Tab = Window:MakeTab({
+	Name = "测试没有功能",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-# Precompiled Headers
-*.gch
-*.pch
+local Section = Tab:AddSection({
+	Name = "测试3"
+})
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
+OrionLib:MakeNotification({
+	Name = "测试通知",
+	Content = "测试内容",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+Tab:AddButton({
+	Name = "测试0",
+	Callback = function()
+      		print("")
+  	end    
+})
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+Tab:AddLabel("简介有飞行")
 
+Tab:AddDropdown({
+	Name = "Dropdown",
+	Default = "1",
+	Options = {"1", "2"},
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+OrionLib:Init()
